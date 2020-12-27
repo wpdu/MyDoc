@@ -1,3 +1,10 @@
+## github
+### vscode_sync
+- access token: 969a439d08bc1146b5de1b9aa07dbf2aceac0a0b
+- 6a922f390c9275f4ce5aa73736c08ebd
+- alt shift u   上传
+- alt shift d   下载
+
 # Git 命令
 
 ## 初始化仓库
