@@ -19,6 +19,16 @@
 
 3. `git clone <url> -b dev`     拉取仓库并切换到分支dev
 
+## remote
+* git remote -v                     查看远程地址
+- git remote set-url origin [url]   修改远程仓库地址
+- git remote add group [url]        添加远程仓地址，并添加别名group
+- git fetch group                   拉取group仓
+- git push group master             推送master代码到group仓
+- git remote show group             查看仓信息
+- git remote rename group origin    重命名
+- git remote remove group           删除远程仓库group
+
 ## 配置
 - git config --list 查看全局配置
 - 修改全局：
@@ -65,15 +75,6 @@
 
 - git branch --set-upstream-to=origin/dev   设置默认push/pull 为dev分支
 - git branch --unset-upstream master
-
-## remote
-* git remote -v                 查看远程地址
-- git remote add group [url]    添加远程仓地址，并添加别名group
-- git fetch group               拉取group仓
-- git push group master         推送master代码到group仓
-- git remote show group         查看仓信息
-- git remote rename group origin    重命名
-- git remote remove group       删除远程仓库group
 
 ## Patch
 - git format-patch HEAD&
