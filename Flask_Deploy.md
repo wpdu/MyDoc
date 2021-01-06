@@ -1,6 +1,7 @@
 # Flask_Deploy
 
 ## 安装环境
+
 ## git
 1. 安装
     * cat /etc/*release*        查看系统信息
@@ -19,6 +20,26 @@
     * Esc -> :q         退出vim
     * git clone git@github.com:wpdu/Switcher.git   克隆源码
 ## python pip
+
+
+## uwsgi (已被gunicorn替换)
+1. 默认配置 ~/.uwsgi/uwsgi.ini  (路径没有限制)
+    [uwsgi]
+    http=127.0.0.1:8888
+    wsgi-file=/home/ubuntu/flask_test/app.py
+    callable=app
+    processes=4
+    threads=2
+    stats=127.0.0.1:9191
+    touch-reload=/home/ubuntu/flask_test
+2. 启动服务
+    uwsgi --ini /.uwsgi/uwsgi.ini
+3. 持续坚挺配置变化：
+    将配置文件放到该路径下, 或者进行软连接 ln -s src tag
+    uwsgi --emeror /.uwsgi/vassals/     开始监听
+4. 放在后台持续运行
+    nohup uwsgi --emperor /.uwsgi/vassals/ &
+
 ## gunicorn
 >Gunicorn (独角兽)是一个高效的Python WSGI Server,通常用它来运行 wsgi application(由我们自己编写遵循WSGI application的编写规范) 或者 wsgi framework(如Django,Paster),地位相当于Java中的Tomcat。 WSGI就是这样的一个协议：它是一个Python程序和用户请求之间的接口。WSGI服务器的作用就是接受并分析用户的请求，调用相应的python对象完成对请求的处理，然后返回相应的结果。 简单来说gunicorn封装了HTTP的底层实现，我们通过gunicorn启动服务，用户请求与服务相应都经过gunicorn传输
 
@@ -39,6 +60,7 @@
         application.run()
 ```
 4. 启动 gunicorn -w 4 -b 0.0.0.0:10000 app:appl
+
 ## 安装Nginx
 >nginx 是一个高性能的web服务器。通常用来在前端做反向代理服务器。所谓正向与反向（reverse），只是英文说法翻译。代理服务，简而言之，一个请求经过代理服务器从局域网发出，然后到达互联网上服务器，这个过程的代理为正向代理。如果一个请求，从互联网过来，先进入代理服务器，再由代理服务器转发给局域网的目标服务器，这个时候，代理服务器为反向代理（相对正向而言）。
 * 正向代理：{ 客户端 ---》 代理服务器 } ---》 服务器
@@ -51,7 +73,9 @@
 2. 停止：service nginx stop
 3. 重启：service nginx restart
 3. 平滑重启：nginx -s reload
+5. 配置文件路径：/etc/nginx/nginx.conf
 
+## 
 
 ***
 

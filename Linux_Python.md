@@ -9,6 +9,8 @@
 7. 编译Python3：./configure --prefix=/usr/local/python
 8. 安装：make
         make install
+9. pip源位置    ~/.pip/pip.conf
+
 
 ### 设置Python3 替换 python2
 1. 修改软连接: ln -s /usr/local/python/bin/python3.6 /usr/bin/python
